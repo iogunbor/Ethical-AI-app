@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => LandingPage(),
         '/passwordReset': (context) => PasswordResetPage(),
         '/login' : (context) => LoggedInPage(),
+        '/emailSent' : (context) => EmailSentPage(),
       },
     );
   }
@@ -180,11 +181,105 @@ class LandingPage extends StatelessWidget {
 }
 
 class PasswordResetPage extends StatelessWidget {
-  @override
+   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('Password Reset Page'),
+      backgroundColor: Color(0xFFD1B7D3), // Matching background color
+      body: Column(
+        children: [
+          // Ethos Logo (Header)
+          Padding(
+            padding: EdgeInsets.only(top: 50, bottom: 20), // Spacing from top
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pop(context); // Navigate back to Login Screen
+              },
+              child: Text(
+                'Ethos',
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.purple[900],
+                ),
+              ),
+            ),
+          ),
+
+          // Page Content
+          Expanded(
+            child: Center(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    // Reset Password Title
+                    Text(
+                      'Reset your password',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+
+                    // Subtitle
+                    Text(
+                      'Enter the email address or username linked to your Ethos account and we\'ll send you an email.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black87,
+                      ),
+                    ),
+                    SizedBox(height: 20),
+
+                    // Email Input Field
+                    SizedBox(
+                      width: 300,
+                      child: TextField(
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          hintText: 'Username or Email address',
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide.none,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20),
+
+                    // Send Link Button
+                    SizedBox(
+                      width: 200,
+                      height: 50,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/emailSent');
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.black, // Black button
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        child: Text(
+                          'Send link',
+                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -196,6 +291,93 @@ class LoggedInPage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Text('Logged In Page'),
+      ),
+    );
+  }
+}
+
+class EmailSentPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xFFD1B7D3), // Matching background color
+      body: Column(
+        children: [
+          // Ethos Logo (Header)
+          Padding(
+            padding: EdgeInsets.only(top: 50, bottom: 20),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.popUntil(context, (route) => route.isFirst); // Return to login
+              },
+              child: Text(
+                'Ethos',
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.purple[900],
+                ),
+              ),
+            ),
+          ),
+
+          // Page Content
+          Expanded(
+            child: Center(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    // Notification Text
+                    Text(
+                      'Password reset link sent!',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+
+                    Text(
+                      'Please check your email for a link to reset your password.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.black87,
+                      ),
+                    ),
+                    SizedBox(height: 20),
+
+                    // Return to Login Button
+                    SizedBox(
+                      width: 200,
+                      height: 50,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.popUntil(context, (route) => route.isFirst); // Navigate back to login
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.black, // Black button
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        child: Text(
+                          'Return to Login',
+                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
