@@ -34,7 +34,7 @@ class _UserHomePageState extends State<UserHomePage> {
         title: const Text(
           'Ethos',
           style: TextStyle(
-            color: Color(0xFF663366), // Dark purple text
+            color: Color(0xFF663366), 
             fontWeight: FontWeight.bold,
             fontSize: 22,
           ),
@@ -43,7 +43,7 @@ class _UserHomePageState extends State<UserHomePage> {
         leading: IconButton(
           icon: const Icon(
             Icons.menu,
-            color: Color(0xFF663366), // Dark purple icon
+            color: Color(0xFF663366), 
           ),
           onPressed: () {
             // Menu functionality would go here
