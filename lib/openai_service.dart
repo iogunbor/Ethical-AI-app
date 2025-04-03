@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class OpenAIService {
-  final String _apiKey = "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"; // Replace with your actual API key
+  final String _apiKey = "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"; // Replace with your actual API key
 
   Future<String> fetchResponse(String prompt) async {
     final url = Uri.parse("https://api.openai.com/v1/chat/completions");
