@@ -24,7 +24,11 @@ class _AboutJeremyPageState extends State<AboutJeremyPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Meet Our Creators!'),
+        title: const Text(
+          'Meet Our Creators!',
+          style: TextStyle(
+            fontWeight: FontWeight.bold),
+        ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: _previousPage,
@@ -50,7 +54,7 @@ class _AboutJeremyPageState extends State<AboutJeremyPage> {
                 CreatorPage(
                   name: "Jeremy Baron",
                   description: "Jeremy is a sophmore at Southern Methodist University studying Computer Science. He is interested in cybersecurity and enjoys keeping applications secure.",
-                  imageUrl: "assets/creator1.jpg", // Add creator images to assets
+                  imageUrl: "assets/images/jeremypfp.jpg", 
                 ),
               ],
             ),

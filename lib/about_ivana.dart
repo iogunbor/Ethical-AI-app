@@ -44,7 +44,12 @@ class _AboutIvanaPageState extends State<AboutIvanaPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Meet Our Creators!'),
+        title: const Text(
+          'Meet Our Creators!',
+          style: TextStyle(
+            fontWeight: FontWeight.bold
+            ),
+          ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.pop(context),
@@ -76,7 +81,7 @@ class _AboutIvanaPageState extends State<AboutIvanaPage> {
                 CreatorPage(
                   name: "Ivana Ogunbor",
                   description: "Ivana is a senior computer science student at Southern Methodist University. She is from Houston Texas. Ivana has experience in backend development and web development. In her free time she enjoys traveling and weightlifting.",
-                  imageUrl: "assets/creator1.jpg", // Add creator images to assets
+                  imageUrl: "assets/images/ivanapfp.jpg", 
                 ),
               ],
             ),

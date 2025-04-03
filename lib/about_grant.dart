@@ -24,7 +24,11 @@ class _AboutGrantPageState extends State<AboutGrantPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Meet Our Creators!'),
+        title: const Text(
+          'Meet Our Creators!',
+          style: TextStyle(
+            fontWeight: FontWeight.bold),
+        ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: _previousPage, 
@@ -50,7 +54,7 @@ class _AboutGrantPageState extends State<AboutGrantPage> {
                 CreatorPage(
                   name: "Grant Solt",
                   description: "Grant is a sophmore at Southern Methodist University studying Computer Science. He is from Frisco, Texas and is interested in software development.",
-                  imageUrl: "assets/creator1.jpg", // Add creator images to assets
+                  imageUrl: "assets/images/grantpfp.jpg", 
                 ),
               ],
             ),
