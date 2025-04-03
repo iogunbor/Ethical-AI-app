@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'openai_service.dart'; // Import the API service
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+void main() async {
+  await dotenv.load(); // Load .env variables
   runApp(MyApp());
 }
 
